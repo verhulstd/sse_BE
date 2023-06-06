@@ -85,3 +85,7 @@ function sendToAllClients() {
 app.listen("1234", function () {
   console.log("🚀 Server is listening on localhost:1234");
 });
+
+export const config = {
+  runtime: "edge",
+};
