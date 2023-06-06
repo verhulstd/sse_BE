@@ -44,7 +44,7 @@ app.get("/stuff", (req, res) => {
 });
 
 const clients = [];
-app.get("/sse", handleServerSentEvents);
+app.get("/sse", handleServerSentEvents(stuff, clients));
 
 function sendToAllClients() {
   clients.forEach((c) => c.res.write(`data: ${JSON.stringify(stuff)}\n\n`));
