@@ -61,17 +61,13 @@ app.get("/sse", (req, res) => {
     res: res,
   });
 
-  const data = `data: ${JSON.stringify({
-    stuff: stuff,
-    nrOfClients: clients.length,
-  })}\n\n`;
-  res.write(data);
+  sendToAllClients();
 
-  setInterval(() => {
-    if (clients.length > 0) {
-      res.write(`data: \n\n`);
-    }
-  }, 5000);
+  // setInterval(() => {
+  //   if (clients.length > 0) {
+  //     res.write(`data: \n\n`);
+  //   }
+  // }, 5000);
 
   req.on("close", () => {
     console.log(`Connection closed from ${client.name}.`);
