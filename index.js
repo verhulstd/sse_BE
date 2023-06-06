@@ -88,7 +88,7 @@ function sendToAllClients() {
     c.res.write(
       `data: ${JSON.stringify({
         stuff: stuff,
-        nrOfClients: clients.length(),
+        nrOfClients: clients.length,
       })}\n\n`
     )
   );
